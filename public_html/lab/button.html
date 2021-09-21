@@ -93,6 +93,17 @@ and open the template in the editor.
 				transition: height 500ms ease-in 50ms, width 500ms ease-in 50ms,
 					margin 500ms ease-in 50ms, opacity 250ms ease-in-out;
 			}
+			.btn-round {
+				border-radius: 20px !important;
+			}
+			.btn-asymetric {
+				border-radius: 4px 20px 4px !important;
+			}
+			.btn-asymetric-reverse {
+				border-radius: 20px 4px 20px !important;
+			}
+			
+		
 
 
 			.footer {
@@ -121,6 +132,10 @@ and open the template in the editor.
 			}
 			.bg-cyan {
 				background-color: #00ccff !important;
+				border: 1px #00aacc solid !important;
+			}
+			.bg-glass {
+				background: linear-gradient(0deg, rgba(53,86,144,1) 10%, rgba(64,64,170,1) 25%, rgba(72,125,185,1) 48%, rgba(90,149,186,1) 52%, rgba(102,185,219,1) 75%, rgba(127,232,254,1) 100%) !important;
 				border: 1px #00aacc solid !important;
 			}
 		</style>
@@ -181,6 +196,17 @@ and open the template in the editor.
 			<button class="btn bg-red">Anakîn</button>
 			<button class="btn bg-cyan" >Irina</button>
 		</div>
+		
+		<div class="container">
+			<button class="btn btn-round">Mon bouton Material Design</button>
+			<button class="btn bg-orange btn-round">Mon bouton 2</button>
+			<button class="btn btn-asymetric" >Mon bouton 3</button>
+			<button class="btn bg-red btn-asymetric-reverse">Mon bouton 4</button>
+			<button class="btn bg-glass">Mon bouton 5</button>
+			<button class="btn bg-glass btn-asymetric">Mon bouton 6</button>
+			<button class="btn bg-red">Anakîn</button>
+			<button class="btn bg-glass btn-round" >Irina</button>
+		</div>
 
 
 
@@ -201,6 +227,21 @@ and open the template in the editor.
 				});
 				btns.mouseup(e => bmu(e.currentTarget));
 				btns.mouseleave(e => bmu(e.currentTarget));
+				
+				$(".btn.btn-round").each((index, el) => {
+					el.style.setProperty("border-radius", el.height / 2 + "px");
+				});
+				
+				$(".btn.btn-asymetric").each((index, el) => {
+					el.style.setProperty("border-radius", "6px " + el.height / 2 + "px 6px");
+				});
+				
+				$(".btn.btn-asymetric-reverse").each((index, el) => {
+					el.style.setProperty("border-radius", el.height / 2 + "px 6px " + el.height / 2 + "px");
+				});
+				
+				
+				
 			}
 			
 			affectGraphicalEffects();
