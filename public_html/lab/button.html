@@ -10,173 +10,15 @@ and open the template in the editor.
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<script type="text/javascript" src="../assets/jquery.js"></script>
-		<style>
-			:root {
-				--mouse-x: 50px;
-				--mouse-y: 50px;
-			}
-
-			body {
-				margin: 0;
-				padding: 0;
-			}
-
-			.container {
-				padding: 20px;
-			}
-
-			.vertical-target-line {
-				height: 100%;
-				width: 1px;
-				background-color: #88888880;
-				position: absolute;
-				left: var(--mouse-x);
-			}
-			.horizontal-target-line {
-				width: 100%;
-				height: 1px;
-				background-color: #88888880;
-				position: absolute;
-				top: var(--mouse-y);
-			}
-
-			button {
-				margin: 4px;
-				cursor: pointer;
-				outline: none;
-			}
-
-			button.btn {
-				border: 1px #006699 solid;
-				background-color: #005FA9;
-				border-radius: 4px;
-				padding: 10px 10px;
-				color: #efefef;
-				font-weight: 600;
-				position: relative;
-				overflow: hidden;
-
-				transition: linear 250ms all;
-			}
-			button.btn > .ripple {
-				display: block;
-				opacity: 0;
-				background-color: #ffffff50;
-				width: 20px;
-				height: 20px;
-				margin-left: -10px;
-				margin-top: -10px;
-				top: 20px;
-				left: 20px;
-				border-radius: 50%;
-				position: absolute;
-				box-shadow: 0 0 8px -1px #ffffff;
-
-				transition: height 250ms ease-in, width 250ms ease-in,
-					margin 250ms ease-in, opacity 300ms ease-in-out;
-			}
-			button.btn:hover {
-				box-shadow: 0 5px 8px -4px #424242;
-			}
-			button.btn.mousedown > .ripple {
-				display: block;
-				opacity: 1;
-				width: 1000px;
-				height: 1000px;
-				margin-left: -500px;
-				margin-top: -500px;
-
-				top: 50%;
-				left: 50%;
-
-				transition: height 500ms ease-in 50ms, width 500ms ease-in 50ms,
-					margin 500ms ease-in 50ms, opacity 250ms ease-in-out;
-			}
-			.btn-round {
-				border-radius: 20px !important;
-			}
-			.btn-asymetric {
-				border-radius: 4px 20px 4px !important;
-			}
-			.btn-asymetric-reverse {
-				border-radius: 20px 4px 20px !important;
-			}
-			
+		<link rel="stylesheet/less" href="../assets/css/materialisation.less" media="screen" />
 		
-
-
-			.footer {
-				line-height: 25px;
-				vertical-align: middle;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				background-color: #88888850;
-				color: #424242;
-				padding-left: 10px;
-			}
-
-			.bg-red {
-				background-color: #cc0000 !important;
-				border: 1px #aa0000 solid !important;
-			}
-			.bg-orange {
-				background-color: #FF6600 !important;
-				border: 1px #DD3300 solid !important;
-			}
-			.bg-purple {
-				background-color: #990099 !important;
-				border: 1px #660066 solid !important;
-			}
-			.bg-cyan {
-				background-color: #00ccff !important;
-				border: 1px #00aacc solid !important;
-			}
-			.bg-glass {
-				background: linear-gradient(0deg, rgba(53,86,144,1) 10%, rgba(64,64,170,1) 25%, rgba(72,125,185,1) 48%, rgba(90,149,186,1) 52%, rgba(102,185,219,1) 75%, rgba(127,232,254,1) 100%) !important;
-				border: 1px #00aacc solid !important;
-			}
-		</style>
+		<script type="text/javascript" src="../assets/js/jquery.js"></script>
+		<script type="text/javascript" src="../assets/js/less-4.1.1.min.js"></script>
+		<script type="text/javascript" src="../assets/js/materialisation.js"></script>
 
 		<script language="javascript">
 
-			var xpos, ypos;
-
-			function bmd(button)
-			{
-				var xposOnButton = xpos - $(button).offset().left;
-				var yposOnButton = ypos - $(button).offset().top;
-				$("#current-element-label").html(button + " x:" + xposOnButton + ", y:" + yposOnButton);
-				$(button).children(".ripple")[0].style.setProperty("left", xposOnButton + "px");
-				$(button).children(".ripple")[0].style.setProperty("top", yposOnButton + "px");
-				$(button).addClass("mousedown");
-			}
-
-			function bmu(button)
-			{
-				$("#current-element-label").html("mouse up");
-				setTimeout(() => {
-					$(button).removeClass("mousedown");
-					$("#current-element-label").html("class removed");
-				}, 500);
-			}
-
-
-
-
-			let root = document.documentElement;
-
-			root.addEventListener("mousemove", e => {
-				xpos = e.clientX;
-				ypos = e.clientY;
-
-				root.style.setProperty('--mouse-x', xpos + "px");
-				root.style.setProperty('--mouse-y', ypos + "px");
-
-				$("#mouse-pos-label").html("x:" + xpos + " y:" + ypos);
-			});
+			
 
 		</script>
 
@@ -188,23 +30,34 @@ and open the template in the editor.
 
 		<div class="container">
 			<button class="btn">Mon bouton Material Design</button>
-			<button class="btn bg-orange">Mon bouton 2</button>
+			<button class="btn bg-warning">Mon bouton 2</button>
 			<button class="btn" >Mon bouton 3</button>
-			<button class="btn bg-red">Mon bouton 4</button>
-			<button class="btn bg-red">Mon bouton 5</button>
+			<button class="btn bg-danger">Mon bouton 4</button>
+			<button class="btn bg-danger">Mon bouton 5</button>
 			<button class="btn bg-purple">Mon bouton 6</button>
-			<button class="btn bg-red">Anakîn</button>
+			<button class="btn bg-danger">Anakîn</button>
 			<button class="btn bg-cyan" >Irina</button>
 		</div>
 		
 		<div class="container">
 			<button class="btn btn-round">Mon bouton Material Design</button>
-			<button class="btn bg-orange btn-round">Mon bouton 2</button>
+			<button class="btn bg-warning btn-round">Mon bouton 2</button>
 			<button class="btn btn-asymetric" >Mon bouton 3</button>
-			<button class="btn bg-red btn-asymetric-reverse">Mon bouton 4</button>
+			<button class="btn bg-danger btn-asymetric-reverse">Mon bouton 4</button>
 			<button class="btn bg-glass">Mon bouton 5</button>
 			<button class="btn bg-glass btn-asymetric">Mon bouton 6</button>
-			<button class="btn bg-red">Anakîn</button>
+			<button class="btn bg-danger">Anakîn</button>
+			<button class="btn bg-glass btn-round" >Irina</button>
+		</div>
+		
+		<div class="container">
+			<button class="btn btn-rectangle">Mon bouton Material Design</button>
+			<button class="btn bg-warning btn-round">Mon bouton 2</button>
+			<button class="btn btn-rectangle" >Mon bouton 3</button>
+			<button class="btn bg-danger btn-asymetric-reverse">Mon bouton 4</button>
+			<button class="btn bg-glass">Mon bouton 5</button>
+			<button class="btn bg-glass btn-rectangle">Mon bouton 6</button>
+			<button class="btn bg-danger">Anakîn</button>
 			<button class="btn bg-glass btn-round" >Irina</button>
 		</div>
 
@@ -215,37 +68,7 @@ and open the template in the editor.
 		</div>
 
 		<script>
-
-
-			function affectGraphicalEffects()
-			{
-				var btns = $(".btn"); 
-				btns.mousedown(e => {
-					$(e.currentTarget).find(".ripple").remove();
-					$(e.currentTarget).append('<div class="ripple"></div>');
-					bmd(e.currentTarget);
-				});
-				btns.mouseup(e => bmu(e.currentTarget));
-				btns.mouseleave(e => bmu(e.currentTarget));
-				
-				$(".btn.btn-round").each((index, el) => {
-					el.style.setProperty("border-radius", el.height / 2 + "px");
-				});
-				
-				$(".btn.btn-asymetric").each((index, el) => {
-					el.style.setProperty("border-radius", "6px " + el.height / 2 + "px 6px");
-				});
-				
-				$(".btn.btn-asymetric-reverse").each((index, el) => {
-					el.style.setProperty("border-radius", el.height / 2 + "px 6px " + el.height / 2 + "px");
-				});
-				
-				
-				
-			}
-			
 			affectGraphicalEffects();
-
 		</script>
 	</body>
 </html>
