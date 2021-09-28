@@ -4,19 +4,26 @@ function bmd(button)
 {
 	var xposOnButton = xpos - $(button).offset().left;
 	var yposOnButton = ypos - $(button).offset().top;
-	$("#current-element-label").html(button + " x:" + xposOnButton + ", y:" + yposOnButton);
+	
 	$(button).children(".ripple")[0].style.setProperty("left", xposOnButton + "px");
 	$(button).children(".ripple")[0].style.setProperty("top", yposOnButton + "px");
 	$(button).addClass("mousedown");
+	
+	// lab debug
+	$("#current-element-label").html(button + " x:" + xposOnButton + ", y:" + yposOnButton);
 }
 
 function bmu(button)
 {
-	$("#current-element-label").html("mouse up");
 	setTimeout(() => {
 		$(button).removeClass("mousedown");
-		$("#current-element-label").html("class removed");
+		
+		// Lab debug
+		$("#current-element-label").html("class mousedown removed");
 	}, 500);
+	
+	// Lab debug
+	$("#current-element-label").html("mouse up");
 }
 
 function affectGraphicalEffects()
@@ -47,16 +54,18 @@ function affectGraphicalEffects()
 
 
 
-
 let root = document.documentElement;
 
 root.addEventListener("mousemove", e => {
+	// JS variables actualisation
 	xpos = e.clientX;
 	ypos = e.clientY;
 
+	// CSS proterty values actualization
 	root.style.setProperty('--mouse-x', xpos + "px");
 	root.style.setProperty('--mouse-y', ypos + "px");
 
+	// Lab debug
 	$("#mouse-pos-label").html("x:" + xpos + " y:" + ypos);
 });
 
